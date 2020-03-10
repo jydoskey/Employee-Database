@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Employees</h1>
-    <employee-form />
+    <employee-form @add:employee="addEmployee" />
     <employee-table :employees="employees" />
   </div>
 </template>
@@ -33,6 +33,17 @@
             social: 'instagram',
           },
         ],
+      }
+    },
+    methods: {
+      addEmployee(employee) {
+        const lastId = 
+          this.employees.length > 0
+            ? this.employees[this.employees.length - 1].id
+            : 0;
+        const id = lastId + 1;
+        const newEmployee = {...employee, id};
+        this.employees = [...this.employees, newEmployee];
       }
     },
   }
