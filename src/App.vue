@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Employees</h1>
-    <employee-table />
+    <employee-table :employees="employees" />
   </div>
 </template>
 
@@ -11,7 +11,27 @@
     name: 'App',
     components: {
       EmployeeTable
-    }
+    },
+    data() {
+      return {
+        employees: [{
+            id: 1,
+            name: 'Omotola Olajide',
+            social: 'facebook',
+          },
+          {
+            id: 2,
+            name: 'Omotola Olajide',
+            social: 'twitter',
+          },
+          {
+            id: 3,
+            name: 'Omotola Olajide',
+            social: 'instagram',
+          },
+        ],
+      }
+    },
   }
 </script>
 

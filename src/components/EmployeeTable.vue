@@ -8,17 +8,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Omotola Olajide</td>
-          <td>Twitter</td>
-        </tr>
-        <tr>
-          <td>Omotola Olajide</td>
-          <td>Facebook</td>
-        </tr>
-        <tr>
-          <td>Omotola Olajide</td>
-          <td>Instagram</td>
+        <tr v-for="employee in employees" :key="employee.id">
+          <td>{{ employee.name}}</td>
+          <td>{{ employee.social}}</td>
         </tr>
       </tbody>
     </table>
@@ -28,6 +20,9 @@
 <script>
 export default {
   name: 'employee-table',
+  props: {
+    employees: Array,
+  }
 }
 </script>
 
