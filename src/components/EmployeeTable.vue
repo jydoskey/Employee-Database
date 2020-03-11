@@ -5,12 +5,17 @@
         <tr>
           <th>Employee name</th>
           <th>Social accounts</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="employee in employees" :key="employee.id">
           <td>{{ employee.name}}</td>
           <td>{{ employee.social}}</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -27,5 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  button {
+    margin: 0 0.5rem 0 0;
+  }
 </style>
