@@ -13,7 +13,7 @@
       <input 
         v-model="employee.social"
         type="text" 
-        :class="{'has-error': submitting && invalidEmail}"
+        :class="{'has-error': submitting && invalidSocial}"
         @focus="clearStatus"
       />
       <p v-if="error && submitting" class="error-message">
@@ -52,6 +52,7 @@
         }
 
         this.$emit('add:employee', this.employee)
+        this.$refs.first.focus()
         this.employee = {
           name: '',
           social: '',
