@@ -16,7 +16,7 @@
           <td>{{ employee.name}}</td>
           <td>{{ employee.social}}</td>
           <td>
-            <button>Edit</button>
+            <button @click="editMode(employee.id)">Edit</button>
             <button @click="$emit('delete:employee', employee.id)">Delete</button>
           </td>
         </tr>
@@ -30,7 +30,21 @@ export default {
   name: 'employee-table',
   props: {
     employees: Array,
-  }
+  },
+  data() {
+    return {
+      editing: null,
+    }
+  },
+  methods: {
+    editMode(id) {
+      this.editing = id
+    },
+    editEmployee(employee) {
+      if (employee.name ==='' || employee.email === '') return
+      this.$emit('edit:employee')
+    }
+  },
 }
 </script>
 
