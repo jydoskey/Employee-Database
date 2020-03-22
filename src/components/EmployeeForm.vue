@@ -11,9 +11,9 @@
       />
       <label>Employee Social</label>
       <input 
-        v-model="employee.social"
+        v-model="employee.email"
         type="text" 
-        :class="{'has-error': submitting && invalidSocial}"
+        :class="{'has-error': submitting && invalidEmail}"
         @focus="clearStatus"
       />
       <p v-if="error && submitting" class="error-message">
@@ -37,7 +37,7 @@
         success: false,
         employee: {
           name: '',
-          social: '',
+          email: '',
         },
       }
     },
@@ -46,7 +46,7 @@
         this.submitting = true
         this.clearStatus()
 
-        if (this.invalidName || this.invalidSocial) {
+        if (this.invalidName || this.invalidEmail) {
           this.error = true
           return
         }
@@ -55,7 +55,7 @@
         this.$refs.first.focus()
         this.employee = {
           name: '',
-          social: '',
+          email: '',
         }
         this.error = false
         this.success = true
@@ -70,8 +70,8 @@
       invalidName() {
         return this.employee.name === ''
       },
-      invalidSocial() {
-        return this.employee.social ===
+      invalidEmail() {
+        return this.employee.email ===
           ''
       },
     },

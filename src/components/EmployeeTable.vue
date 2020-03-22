@@ -18,9 +18,9 @@
           </td>
           <td v-else>{{ employee.name}}</td>
           <td v-if="editing === employee.id">
-            <input type="text" v-model="employee.social"/>
+            <input type="text" v-model="employee.email"/>
           </td>
-          <td v-else>{{ employee.social}}</td>
+          <td v-else>{{ employee.email}}</td>
           <td v-if="editing === employee.id">
             <button @click="editEmployee(employee)">Save</button>
             <button class="muted-button" @click="editing = null">Cancel</button>
